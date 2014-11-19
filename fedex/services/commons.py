@@ -9,6 +9,7 @@
     :license: BSD, see LICENSE for more details.
 """
 
+from six import string_types
 from decimal import Decimal
 from logging import getLogger
 from suds.client import Client
@@ -85,7 +86,7 @@ class XDecimal(XBuiltin):
             value for python.
         """
         if topython:
-            if isinstance(value, basestring) and len(value):
+            if isinstance(value, string_types) and len(value):
                 ret_val = Decimal(value)
             else:
                 ret_val = None
